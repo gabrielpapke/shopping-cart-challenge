@@ -13,7 +13,7 @@ export function Header() {
     <Counter onClick={() => handleCartClick()}>
       <Image src={cartIcon} alt='' />
 
-      {cartCount && <span>{cartCount}</span>}
+      {!!cartCount && <span>{cartCount}</span>}
     </Counter>
   </HeaderContainer>
 }
