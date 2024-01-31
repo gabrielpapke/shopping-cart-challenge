@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv extends ProcessEnv {
-      STRIPE_PUBLIC_KEY: string
+      NEXT_PUBLIC_STRIPE_PUBLIC_KEY: string
       STRIPE_SECRET_KEY: string;
     }
   }

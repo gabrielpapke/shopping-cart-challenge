@@ -7,21 +7,15 @@ import { stripe } from "../../lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "../../styles/pages/product"
 import { useState } from "react";
 import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
+import { Product as CartProductProps } from "use-shopping-cart/core";
 
 interface ProductProps {
-  product: {
-    id: string
-    name: string
-    imageUrl: string
-    price: number
-    description: string
-    // defaultPriceId: string
-  }
+  product: CartProductProps
 }
 
 export default function Product({ product }: ProductProps) {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
-  const { addItem, clearCart } = useShoppingCart()
+  const { addItem } = useShoppingCart()
 
   const price = formatCurrencyString({
     // value: product && product.default_price as number,
@@ -29,11 +23,9 @@ export default function Product({ product }: ProductProps) {
     currency: 'BRL',
     language: 'pt-BR'
   })
-  async function handleBuyButton(product) {
-    // clearCart()
+  async function handleBuyButton(product: CartProductProps) {
     try {
 
-      console.log(product);
 
       addItem(product)
       // setIsCreatingCheckoutSession(true);

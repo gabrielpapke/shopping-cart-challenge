@@ -9,7 +9,7 @@ import {
 export function CartList() {
   const { cartDetails } = useShoppingCart()
   const productsIds = Object.keys(cartDetails as {});
-  console.log(cartDetails)
+
   return (
     cartDetails && <CartListContainer>
       {productsIds.map(productId =>

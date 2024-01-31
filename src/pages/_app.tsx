@@ -10,7 +10,7 @@ import { Layout } from '../components/Layout';
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
-
+  console.log('env', process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
   return (
     <Container>
       <CartProvider
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         shouldPersist={true}
         cartMode="checkout-session"
         currency="BRL"
-        stripe={process.env.STRIPE_PUBLIC_KEY}
+        stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}
       >
         <Layout>
           <Component {...pageProps} />

@@ -24,11 +24,11 @@ export function CartItem({ product }: CartItemProps) {
         <h3>{product.name}</h3>
         <div>
           <span>Qtd: {product.quantity}</span>
-          <span>{formatCurrencyString({
+          <strong>{formatCurrencyString({
             value: product.price,
             currency: 'BRL',
             language: 'pt-BR'
-          })}</span>
+          })}</strong>
         </div>
         <button onClick={() => removeItem(product.id)}>Remover</button>
       </ItemInfo>

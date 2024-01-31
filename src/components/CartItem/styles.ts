@@ -4,6 +4,7 @@ export const ItemContainer = styled('li', {
   display: 'grid',
   gridTemplateColumns: '95px 1fr',
   gap: '1.5rem',
+
   '& + li': {
     marginTop: '1.5rem',
   }
@@ -36,7 +37,6 @@ export const ItemInfo = styled('div', {
     justifyContent: 'space-between',
     width: '100%',
     alignItems: 'center',
-    fontWeight: 'bold',
     fontSize: '1rem',
     margin: '0.2rem 0 '
   },
