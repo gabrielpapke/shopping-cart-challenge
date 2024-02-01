@@ -37,6 +37,18 @@ export const SuccessContainer = styled('main', {
   }
 });
 
+export const ImagesList = styled('div', {
+  width: '100%',
+  borderRadius: 8,
+  padding: '0.25rem',
+  marginTop: '4rem',
+
+  display: 'flex',
+  gap: 16,
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 export const ImageContainer = styled('div', {
   width: '100%',
   maxWidth: 130,

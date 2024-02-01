@@ -18,7 +18,6 @@ export default function Product({ product }: ProductProps) {
   const { addItem } = useShoppingCart()
 
   const price = formatCurrencyString({
-    // value: product && product.default_price as number,
     value: product.price,
     currency: 'BRL',
     language: 'pt-BR'
@@ -28,15 +27,7 @@ export default function Product({ product }: ProductProps) {
 
 
       addItem(product)
-      // setIsCreatingCheckoutSession(true);
 
-      // const response = await axios.post('/api/checkout', {
-      //   priceId: product.defaultPriceId,
-      // })
-
-      // const { checkoutUrl } = response.data;
-
-      // window.location.href = checkoutUrl;
     } catch (err) {
       setIsCreatingCheckoutSession(false);
 
@@ -62,7 +53,7 @@ export default function Product({ product }: ProductProps) {
           <p>{product.description}</p>
 
           <button disabled={isCreatingCheckoutSession} onClick={() => handleBuyButton(product)}>
-            Comprar agora
+            Adicionar ao carrinho
           </button>
         </ProductDetails>
       </ProductContainer>
@@ -89,10 +80,13 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
   }
 
   const product = await stripe.products.retrieve(productId, {
-    // expand: ['default_price']
+    expand: ['default_price']
   });
 
   const price = product.default_price as Stripe.Price;
+
+  console.log('price', price)
+  console.log('price default', product.default_price)
 
   return {
     props: {
@@ -100,9 +94,9 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
         id: product.id,
         name: product.name,
         imageUrl: product.images[0],
-        price: 100,
         description: product.description,
-        // defaultPriceId: price.id
+        price: price.unit_amount,
+        defaultPriceId: price.id
       }
     },
     revalidate: 60 * 60 * 1 // 1 hours
