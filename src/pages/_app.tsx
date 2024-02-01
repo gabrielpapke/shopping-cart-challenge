@@ -10,7 +10,6 @@ import { Layout } from '../components/Layout';
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('env', process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
   return (
     <Container>
       <CartProvider
