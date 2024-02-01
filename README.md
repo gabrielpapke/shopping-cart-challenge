@@ -8,6 +8,8 @@ Main technologies:
 
 See the demo available [here](https://shopping-cart-challenge-three.vercel.app/).
 
+_Tip: On payment screen (testing mode), you can add the valid card number: "4242 4242 4242 4242"._
+
 ![Alt text](screenshot.png?raw=true "Home")
 
 ---
